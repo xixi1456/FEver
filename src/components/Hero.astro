@@ -1,0 +1,81 @@
+---
+// Hero 首屏 - 圆形队徽+故障文字+粒子+文字带
+---
+
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+  <!-- 多层发光球 (美术AI升级) -->
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--color-neon-green)] opacity-[0.08] rounded-full blur-[120px]"></div>
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[var(--color-neon-blue)] opacity-[0.05] rounded-full blur-[80px]"></div>
+  <div class="absolute top-2/3 right-1/4 w-[200px] h-[200px] bg-[var(--color-neon-purple)] opacity-[0.04] rounded-full blur-[60px]"></div>
+  <!-- 扫描线 (美术AI新增) -->
+  <div class="scan-sweep" aria-hidden="true"></div>
+
+  <div class="relative z-10 text-center px-4">
+    <!-- 圆形队徽 + 六边形框架 + 旋转环 -->
+    <div class="mb-8 fade-up relative inline-block">
+      <svg class="w-28 h-28 sm:w-36 sm:h-36" viewBox="0 0 140 140" fill="none">
+        <!-- 外圈旋转虚线 -->
+        <circle cx="70" cy="70" r="68" stroke="var(--color-neon-green)" stroke-width="0.4" stroke-dasharray="6 4" class="loading-spin" opacity="0.3"/>
+        <!-- 六边形框架 -->
+        <path d="M70 6L128 38V102L70 134L12 102V38L70 6Z" stroke="var(--color-neon-green)" stroke-width="1" class="stroke-draw" style="--len:400"/>
+        <!-- 圆形队徽图片(已预处理好，带绿色描边) + drop-shadow发光 -->
+        <image href={import.meta.env.BASE_URL + "images/logo-hero.png"} x="14" y="14" width="112" height="112" preserveAspectRatio="xMidYMid meet" style="filter: drop-shadow(0 0 20px rgba(0,255,157,0.5))"/>
+        <!-- 六个顶点装饰 - 错峰脉冲 -->
+        <circle cx="70" cy="6" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:0s"/>
+        <circle cx="128" cy="38" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:0.3s"/>
+        <circle cx="128" cy="102" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:0.6s"/>
+        <circle cx="70" cy="134" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:0.9s"/>
+        <circle cx="12" cy="102" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:1.2s"/>
+        <circle cx="12" cy="38" r="2" fill="var(--color-neon-green)" opacity="0.7" class="animate-pulse" style="animation-delay:1.5s"/>
+      </svg>
+    </div>
+
+    <!-- RGB故障主标题 (美术AI: glitch→glitch-rgb, hover触发) -->
+    <h1 class="glitch-rgb text-5xl sm:text-7xl lg:text-[10rem] font-black tracking-[-0.04em] mb-2" data-text="FEVER">
+      FEVER
+    </h1>
+
+    <p class="text-stroke-lg text-2xl sm:text-4xl tracking-[0.8em] mb-6 font-mono">ROBMASTER</p>
+    <p class="text-[var(--color-text-dim)] text-xs sm:text-sm tracking-[0.3em] mb-10 font-mono">河北工业职业技术大学</p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <span class="px-4 py-1.5 text-xs tracking-[0.25em] border border-[var(--color-neon-blue)]/20 text-[var(--color-neon-blue)]/70 rounded-full font-mono hover:-translate-y-0.5 hover:border-[var(--color-neon-blue)]/40 transition-all duration-300">嵌入式</span>
+      <span class="px-4 py-1.5 text-xs tracking-[0.25em] border border-[var(--color-neon-purple)]/20 text-[var(--color-neon-purple)]/70 rounded-full font-mono hover:-translate-y-0.5 hover:border-[var(--color-neon-purple)]/40 transition-all duration-300">算法</span>
+      <span class="px-4 py-1.5 text-xs tracking-[0.25em] border border-[var(--color-neon-green)]/20 text-[var(--color-neon-green)]/70 rounded-full font-mono hover:-translate-y-0.5 hover:border-[var(--color-neon-green)]/40 transition-all duration-300">机械</span>
+    </div>
+
+    <a href="#groups" class="inline-flex items-center gap-2 px-8 py-3 border border-[var(--color-neon-green)] text-[var(--color-neon-green)] tracking-[0.2em] text-xs font-mono rounded-lg btn-reveal data-magnetic" data-cursor="→" style="position:relative;z-index:1;">
+      EXPLORE
+      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </a>
+  </div>
+
+  <!-- 无限滚动文字带 -->
+  <div class="absolute bottom-24 sm:bottom-28 left-0 w-full overflow-hidden opacity-10" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="text-[10vw] font-black tracking-wider text-stroke whitespace-nowrap px-8">EMBEDDED &nbsp;&bull;&nbsp; ALGORITHM &nbsp;&bull;&nbsp; MECHANICAL &nbsp;&bull;&nbsp;</span>
+      <span class="text-[10vw] font-black tracking-wider text-stroke whitespace-nowrap px-8">EMBEDDED &nbsp;&bull;&nbsp; ALGORITHM &nbsp;&bull;&nbsp; MECHANICAL &nbsp;&bull;&nbsp;</span>
+    </div>
+  </div>
+  <div class="absolute bottom-10 sm:bottom-14 left-0 w-full overflow-hidden opacity-10" aria-hidden="true">
+    <div class="marquee-track reverse">
+      <span class="text-[8vw] font-black tracking-wider text-stroke whitespace-nowrap px-8">ROBMASTER &nbsp;&bull;&nbsp; FEVER &nbsp;&bull;&nbsp; ROBOTICS &nbsp;&bull;&nbsp; COMPETITION &nbsp;&bull;&nbsp;</span>
+      <span class="text-[8vw] font-black tracking-wider text-stroke whitespace-nowrap px-8">ROBMASTER &nbsp;&bull;&nbsp; FEVER &nbsp;&bull;&nbsp; ROBOTICS &nbsp;&bull;&nbsp; COMPETITION &nbsp;&bull;&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2" id="scroll-indicator">
+    <div class="w-px h-8 bg-gradient-to-b from-transparent via-[var(--color-neon-green)] to-transparent opacity-60"></div>
+  </div>
+</section>
+
+<style>
+  .loading-spin {
+    transform-origin: center;
+    animation: spin-slow 10s linear infinite;
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>

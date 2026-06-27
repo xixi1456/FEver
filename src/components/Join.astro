@@ -1,0 +1,349 @@
+---
+// 报名区域 - 队徽展示 + 战队故事 + 数据亮点 + 招新要求 + 报名流程 + FAQ + 联系方式
+---
+
+<section id="join" class="relative py-24 sm:py-40">
+  <!-- 顶部脉冲分隔线 (JIEJOO 011 脉冲虚线风格) -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden opacity-15" aria-hidden="true">
+    <svg class="w-full h-3" viewBox="0 0 1200 12" preserveAspectRatio="none">
+      <line x1="0" y1="6" x2="1200" y2="6" stroke="var(--color-neon-green)" stroke-width="1" stroke-dasharray="40 2 1 2">
+        <animate attributeName="stroke-dashoffset" from="0" to="-45" dur="2s" repeatCount="indefinite"/>
+      </line>
+    </svg>
+  </div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-neon-green)] opacity-[0.06] rounded-full blur-[150px]"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+
+    <!-- ===== 队徽展示 + 战队介绍 ===== -->
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-20 fade-up">
+      <!-- 队徽大图（圆形+六边形框架+描边动画） -->
+      <div class="flex-shrink-0 relative">
+        <!-- 外层六边形装饰 -->
+        <svg class="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)]" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <path d="M100 10L185 55V145L100 190L15 145V55L100 10Z" stroke="var(--color-neon-green)" stroke-width="0.5" opacity="0.2" class="stroke-draw" style="--len:560"/>
+        </svg>
+        <!-- 旋转虚线圈 -->
+        <div class="absolute inset-[-8px] rounded-full border border-[var(--color-neon-green)]/10 loading-spin"></div>
+        <!-- 圆形队徽 -->
+        <img
+          src={import.meta.env.BASE_URL + "images/logo-circle.png"}
+          alt="ROBMASTER Fever 战队队徽"
+          class="relative w-36 sm:w-44 h-auto rounded-full"
+          style="filter: drop-shadow(0 0 30px rgba(0,255,157,0.4)) drop-shadow(0 0 60px rgba(0,255,157,0.2));"
+          width="176"
+          height="176"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- 文字介绍 -->
+      <div class="text-center lg:text-left">
+        <p class="text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-2 font-mono">ABOUT FEVER</p>
+        <h2 class="text-5xl sm:text-6xl font-black text-white mb-6 tracking-tight">我们是谁</h2>
+        <div class="w-16 h-px bg-[var(--color-neon-green)]/30 mb-6 mx-auto lg:mx-0"></div>
+        <p class="text-[var(--color-text-dim)] text-sm leading-loose mb-4">
+          ROBMASTER Fever 战队隶属<span class="text-white font-medium">河北工业职业技术大学</span>，是一支专注于 RoboMaster 赛事的技术团队。我们集结了嵌入式、算法、机械三大门派的热爱者，从零到一打造每一台竞技机器人。
+        </p>
+        <p class="text-[var(--color-text-dim)] text-sm leading-loose">
+          我们相信——<span class="text-[var(--color-neon-green)] font-bold">热爱可抵漫长调试</span>。每一颗螺丝的拧紧、每一行代码的提交、每一帧画面的识别，都是我们奔向赛场的底气。在这里，你不只是在学习技术，你是在和一群同样疯狂的人，把不可能变成现实。
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== 数据亮点 ===== -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-20 fade-up">
+      <div class="text-center p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] cyber-corners group hover:border-[var(--color-neon-green)]/30 transition-colors">
+        <p class="text-5xl sm:text-7xl font-black gradient-text-green tabular-nums tracking-tight" data-count="3">0</p>
+        <p class="text-[var(--color-text-dim)] text-xs tracking-[0.2em] font-mono mt-2">门派方向</p>
+      </div>
+      <div class="text-center p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] cyber-corners group hover:border-[var(--color-neon-green)]/30 transition-colors">
+        <p class="text-5xl sm:text-7xl font-black gradient-text-green tabular-nums tracking-tight" data-count="20">0</p>
+        <p class="text-[var(--color-text-dim)] text-xs tracking-[0.2em] font-mono mt-2">核心成员</p>
+      </div>
+      <div class="text-center p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] cyber-corners group hover:border-[var(--color-neon-green)]/30 transition-colors">
+        <p class="text-5xl sm:text-7xl font-black gradient-text-green tracking-tight">∞</p>
+        <p class="text-[var(--color-text-dim)] text-xs tracking-[0.2em] font-mono mt-2">通宵次数</p>
+      </div>
+      <div class="text-center p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] cyber-corners group hover:border-[var(--color-neon-green)]/30 transition-colors">
+        <p class="text-5xl sm:text-7xl font-black gradient-text-green tabular-nums tracking-tight" data-count="1">0</p>
+        <p class="text-[var(--color-text-dim)] text-xs tracking-[0.2em] font-mono mt-2">共同目标</p>
+      </div>
+    </div>
+
+    <!-- ===== 我们在找你 ===== -->
+    <div class="mb-20 fade-up">
+      <p class="text-center text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-6 font-mono">WHO WE NEED</p>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="flex items-start gap-4 p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] hover:border-[var(--color-neon-blue)]/40 transition-colors card-hover cyber-corners card-tilt" data-cursor>
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-[var(--color-neon-blue)]/30 rounded text-[var(--color-neon-blue)]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <p class="text-white text-sm font-bold mb-1">嵌入式门派</p>
+            <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">会 C 语言 / 喜欢嵌入式 / 爱画板子<br/>电控+硬件，掌控机器人的神经与心脏</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] hover:border-[var(--color-neon-purple)]/40 transition-colors card-hover cyber-corners card-tilt" data-cursor>
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-[var(--color-neon-purple)]/30 rounded text-[var(--color-neon-purple)]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <div>
+            <p class="text-white text-sm font-bold mb-1">算法门派</p>
+            <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">会 Python / 对 AI 感兴趣 / 想搞导航<br/>视觉+导航，让机器人看见世界并自主决策</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] hover:border-[var(--color-neon-green)]/40 transition-colors card-hover cyber-corners card-tilt" data-cursor>
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-[var(--color-neon-green)]/30 rounded text-[var(--color-neon-green)]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <p class="text-white text-sm font-bold mb-1">机械门派</p>
+            <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">会 CAD / 爱动手 / 对结构设计有执念<br/>让机器人的每个关节都精准有力</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 报名流程 ===== -->
+    <div class="mb-20 fade-up">
+      <p class="text-center text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-6 font-mono">HOW TO JOIN</p>
+      <h3 class="text-center text-2xl sm:text-3xl font-bold text-white mb-10">报名流程</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 relative">
+        <!-- 连接线 -->
+        <div class="hidden sm:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[var(--color-neon-green)]/60 via-[var(--color-neon-green)]/20 to-transparent"></div>
+
+        <div class="text-center p-4 relative">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-neon-green)] rounded-full text-[var(--color-neon-green)] text-lg font-black font-mono relative z-10 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,157,0.5)]">1</div>
+          <p class="text-white text-sm font-medium mb-1">填写报名</p>
+          <p class="text-[var(--color-text-dim)] text-xs font-mono">线上表单提交</p>
+        </div>
+        <div class="text-center p-4 relative">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-neon-green)]/60 rounded-full text-[var(--color-neon-green)]/70 text-lg font-black font-mono relative z-10 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,157,0.3)]">2</div>
+          <p class="text-white text-sm font-medium mb-1">面试交流</p>
+          <p class="text-[var(--color-text-dim)] text-xs font-mono">线下面对面</p>
+        </div>
+        <div class="text-center p-4 relative">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-neon-green)]/40 rounded-full text-[var(--color-neon-green)]/50 text-lg font-black font-mono relative z-10 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,157,0.2)]">3</div>
+          <p class="text-white text-sm font-medium mb-1">试训考核</p>
+          <p class="text-[var(--color-text-dim)] text-xs font-mono">两周实战考验</p>
+        </div>
+        <div class="text-center p-4 relative">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-neon-green)]/20 rounded-full text-[var(--color-neon-green)]/30 text-lg font-black font-mono relative z-10 transition-all hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,157,0.1)]">4</div>
+          <p class="text-white text-sm font-medium mb-1">正式入队</p>
+          <p class="text-[var(--color-text-dim)] text-xs font-mono">欢迎加入 Fever</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FAQ ===== -->
+    <div class="mb-20 fade-up">
+      <p class="text-center text-[var(--color-neon-green)] text-[10px] tracking-[0.4em] mb-6 font-mono">FAQ</p>
+      <h3 class="text-center text-2xl sm:text-3xl font-bold text-white mb-10">常见问题</h3>
+      <div class="max-w-2xl mx-auto space-y-3">
+        <div class="faq-item border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden">
+          <button class="faq-toggle w-full text-left p-4 flex items-center justify-between" aria-expanded="false" data-cursor>
+            <span class="text-white text-sm font-medium">零基础可以加入吗？</span>
+            <svg class="w-4 h-4 text-[var(--color-neon-green)] transition-transform duration-300 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-detail max-h-0 overflow-hidden transition-all duration-400" style="opacity:0">
+            <p class="px-4 pb-4 text-[var(--color-text-dim)] text-xs leading-relaxed border-t border-[var(--color-border)] pt-3">
+              当然可以！Fever 欢迎所有对机器人感兴趣的同学。我们有完善的培训体系，学长学姐手把手带你从零开始，只要你有一颗愿意学习的心。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden">
+          <button class="faq-toggle w-full text-left p-4 flex items-center justify-between" aria-expanded="false" data-cursor>
+            <span class="text-white text-sm font-medium">需要自备设备吗？</span>
+            <svg class="w-4 h-4 text-[var(--color-neon-green)] transition-transform duration-300 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-detail max-h-0 overflow-hidden transition-all duration-400" style="opacity:0">
+            <p class="px-4 pb-4 text-[var(--color-text-dim)] text-xs leading-relaxed border-t border-[var(--color-border)] pt-3">
+              战队提供所有必要的设备和工具，包括 3D 打印机、CNC 加工中心、电子元件、开发板等。你只需要带上自己即可。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden">
+          <button class="faq-toggle w-full text-left p-4 flex items-center justify-between" aria-expanded="false" data-cursor>
+            <span class="text-white text-sm font-medium">日常训练时间怎么安排？</span>
+            <svg class="w-4 h-4 text-[var(--color-neon-green)] transition-transform duration-300 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-detail max-h-0 overflow-hidden transition-all duration-400" style="opacity:0">
+            <p class="px-4 pb-4 text-[var(--color-text-dim)] text-xs leading-relaxed border-t border-[var(--color-border)] pt-3">
+              每周固定 2-3 次集体训练（通常在晚间和周末），备赛期会适当增加。我们理解大家有课业压力，会尽量协调时间。
+            </p>
+          </div>
+        </div>
+        <div class="faq-item border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden">
+          <button class="faq-toggle w-full text-left p-4 flex items-center justify-between" aria-expanded="false" data-cursor>
+            <span class="text-white text-sm font-medium">参赛有机会获得什么？</span>
+            <svg class="w-4 h-4 text-[var(--color-neon-green)] transition-transform duration-300 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-detail max-h-0 overflow-hidden transition-all duration-400" style="opacity:0">
+            <p class="px-4 pb-4 text-[var(--color-text-dim)] text-xs leading-relaxed border-t border-[var(--color-border)] pt-3">
+              国赛获奖可获得保研加分、奖学金、简历高亮经历。更重要的是，你将收获一段与队友并肩作战的宝贵经历，以及远超课堂的工程实战能力。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 报名CTA ===== -->
+    <div class="text-center fade-up mb-16">
+      <p class="text-[var(--color-text)] text-base sm:text-lg mb-8">
+        无论你是哪种人，<span class="text-[var(--color-neon-green)] font-bold">Fever 都需要你</span>。
+      </p>
+      <a href="https://v.wjx.cn/vm/Qsw1FME.aspx#" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 px-10 py-4 bg-[var(--color-neon-green)] text-[var(--color-bg)] font-bold tracking-[0.2em] text-sm rounded hover:shadow-[0_0_60px_rgba(0,255,136,0.6),0_0_0_2px_rgba(0,255,136,0.4)] transition-all duration-300 font-mono btn-reveal" data-cursor="JOIN" data-magnetic>
+        填写报名表
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+      <p class="text-[var(--color-text-dim)] text-[10px] tracking-wider mt-4 font-mono">链接将在招新季开放</p>
+    </div>
+
+  </div><!-- end max-w-5xl container -->
+
+  <!-- ===== 联系我们 ===== (全宽布局，移出max-w容器) -->
+  <div class="mt-20 pt-16 border-t border-[var(--color-border)]">
+
+    <!-- 上半区：暗底 CONTACT ME + 散落图标 -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative py-16 sm:py-24 text-center">
+      <!-- 散落装饰点 -->
+      <div class="hidden sm:block absolute left-[18%] top-[30%] w-3 h-3 rounded-full bg-[#07C160] opacity-40" aria-hidden="true"></div>
+      <div class="hidden sm:block absolute right-[25%] top-[50%] w-3 h-3 rounded-full bg-[#12B7F5] opacity-40" aria-hidden="true"></div>
+      <div class="hidden sm:block absolute left-[38%] top-[55%] w-2 h-2 rounded-full bg-[#FF6A00] opacity-30" aria-hidden="true"></div>
+      <div class="hidden sm:block absolute right-[38%] top-[25%] w-2 h-2 rounded-full bg-[#9CA3AF] opacity-30" aria-hidden="true"></div>
+
+      <!-- 手机图标 (左上) -->
+      <div class="hidden sm:block absolute left-[8%] sm:left-[12%] top-[15%] text-[#9CA3AF]" aria-hidden="true">
+        <svg class="w-6 h-8 sm:w-8 sm:h-10" viewBox="0 0 22 34" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="1" width="20" height="32" rx="3"/>
+          <circle cx="11" cy="28" r="2" fill="currentColor"/>
+          <line x1="6" y1="6" x2="16" y2="6"/>
+        </svg>
+      </div>
+
+      <!-- 信封图标 (右上，倾斜-15°) -->
+      <div class="hidden sm:block absolute right-[8%] sm:right-[12%] top-[15%] text-[#9CA3AF]" style="transform: rotate(-15deg);" aria-hidden="true">
+        <svg class="w-8 h-6 sm:w-10 sm:h-7" viewBox="0 0 28 18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="3" width="26" height="14" rx="2"/>
+          <polyline points="1,3 14,13 27,3"/>
+        </svg>
+      </div>
+
+      <!-- 微信双气泡图标 (左下) -->
+      <div class="hidden sm:block absolute left-[10%] sm:left-[14%] bottom-[20%]" aria-hidden="true">
+        <svg class="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 48 36" fill="none">
+          <ellipse cx="16" cy="12" rx="14" ry="10" fill="#07C160"/>
+          <circle cx="10" cy="11" r="1.8" fill="white"/>
+          <circle cx="22" cy="11" r="1.8" fill="white"/>
+          <ellipse cx="32" cy="24" rx="10" ry="7" fill="#07C160" opacity="0.75"/>
+          <circle cx="28" cy="23" r="1.2" fill="white"/>
+          <circle cx="36" cy="23" r="1.2" fill="white"/>
+        </svg>
+      </div>
+
+      <!-- QQ企鹅图标 (右中上) -->
+      <div class="hidden sm:block absolute right-[15%] sm:right-[18%] top-[25%]" aria-hidden="true">
+        <svg class="w-10 h-12 sm:w-12 sm:h-14" viewBox="0 0 32 36" fill="none">
+          <ellipse cx="16" cy="22" rx="13" ry="14" fill="#12B7F5"/>
+          <circle cx="16" cy="10" r="9" fill="#12B7F5"/>
+          <circle cx="12" cy="9" r="3" fill="white"/>
+          <circle cx="20" cy="9" r="3" fill="white"/>
+          <circle cx="13" cy="9" r="1.5" fill="#333"/>
+          <circle cx="19" cy="9" r="1.5" fill="#333"/>
+          <ellipse cx="16" cy="13" rx="2" ry="1.5" fill="#FFA500"/>
+        </svg>
+      </div>
+
+      <!-- 定位针图标 (右下) -->
+      <div class="hidden sm:block absolute right-[10%] sm:right-[14%] bottom-[20%]" aria-hidden="true">
+        <svg class="w-8 h-10 sm:w-10 sm:h-12" viewBox="0 0 24 24" fill="#FF6A00">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      </div>
+
+      <!-- 弹簧电话线装饰 -->
+      <div class="hidden sm:block absolute left-1/2 -translate-x-1/2 top-[70%]" aria-hidden="true">
+        <svg class="w-6 h-20 sm:w-8 sm:h-28" viewBox="0 0 20 40" fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.5">
+          <path d="M10 0 L10 5 M8 5 Q10 10 12 5 M8 12 Q10 17 12 12 M8 19 Q10 24 12 19 M10 24 L10 40"/>
+        </svg>
+      </div>
+
+      <!-- CONTACT ME 大标题 -->
+      <h3 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight relative z-10">
+        CONTACT ME
+      </h3>
+    </div>
+
+    <!-- 下半区：白色背景 + 二维码（全宽） -->
+    <div class="bg-white rounded-t-2xl py-16 sm:py-24">
+      <div class="max-w-xl mx-auto px-4 flex flex-col items-center gap-6">
+
+        <!-- QQ 二维码占位 -->
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-xl overflow-hidden flex items-center justify-center bg-[#12B7F5]/5 border-2 border-[#12B7F5]/20">
+            <img src="/fever/images/qq_qr.jpg" alt="QQ QR Code" class="w-full h-full object-contain" />
+          </div>
+          <p class="text-base text-[#12B7F5] font-mono tracking-[0.2em] font-medium">QQ</p>
+        </div>
+
+      </div>
+
+      <!-- 底部装饰线 -->
+      <div class="mt-12 max-w-xs mx-auto h-px bg-[#E5E7EB]"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  // ===== FAQ 手风琴 =====
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item')!;
+      const detail = item.querySelector('.faq-detail') as HTMLElement;
+      const arrow = btn.querySelector('.faq-arrow')!;
+      const isOpen = detail.style.maxHeight !== '0px' && detail.style.maxHeight !== '';
+
+      // 关闭所有
+      document.querySelectorAll('.faq-detail').forEach((d) => {
+        (d as HTMLElement).style.maxHeight = '0px';
+        (d as HTMLElement).style.opacity = '0';
+      });
+      document.querySelectorAll('.faq-arrow').forEach((a) => { a.style.transform = ''; });
+      document.querySelectorAll('.faq-toggle').forEach((b) => { b.setAttribute('aria-expanded', 'false'); });
+
+      if (!isOpen) {
+        detail.style.maxHeight = detail.scrollHeight + 'px';
+        detail.style.opacity = '1';
+        arrow.style.transform = 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ===== 数据计数动画 =====
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.count || '0');
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 30));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = current + (target > 10 ? '+' : '');
+        }, 40);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach((c) => counterObserver.observe(c));
+</script>

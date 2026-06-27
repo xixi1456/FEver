@@ -280,7 +280,26 @@
 
     <!-- 下半区：白色背景 + 二维码（全宽） -->
     <div class="bg-white rounded-t-2xl py-16 sm:py-24">
-      <div class="max-w-xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
+      <div class="max-w-3xl mx-auto px-4 flex justify-center gap-8 sm:gap-16 md:gap-24">
+
+        <!-- WeChat 二维码占位 -->
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-20 h-20 sm:w-24 md:w-28 sm:h-24 md:h-28 border-2 border-dashed border-[#07C160]/40 rounded-lg flex items-center justify-center bg-[#07C160]/5">
+            <div class="text-center">
+              <svg class="w-5 h-5 sm:w-6 md:w-8 sm:h-6 md:h-8 mx-auto mb-1" viewBox="0 0 24 24" fill="none" stroke="#07C160" stroke-width="1.5" opacity="0.5">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="3" height="3" rx="0.5"/>
+                <rect x="18" y="14" width="3" height="3" rx="0.5"/>
+                <rect x="14" y="18" width="3" height="3" rx="0.5"/>
+                <rect x="18" y="18" width="3" height="3" rx="0.5"/>
+              </svg>
+              <span class="text-[10px] text-[#07C160]/50 font-mono">QR</span>
+            </div>
+          </div>
+          <p class="text-sm text-[#07C160] font-mono tracking-[0.15em] font-medium">WeChat</p>
+        </div>
 
         <!-- QQ 二维码 -->
         <div class="flex flex-col items-center gap-4">
@@ -288,14 +307,6 @@
             <img src={import.meta.env.BASE_URL + 'images/qq_qr.jpg'} alt="QQ QR Code" class="w-full h-full object-contain" />
           </div>
           <p class="text-base text-[#12B7F5] font-mono tracking-[0.2em] font-medium">QQ</p>
-        </div>
-
-        <!-- 微信二维码 -->
-        <div class="flex flex-col items-center gap-4">
-          <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-xl overflow-hidden flex items-center justify-center bg-[#07C160]/5 border-2 border-[#07C160]/20">
-            <img src={import.meta.env.BASE_URL + 'images/wechat_qr.jpg'} alt="WeChat QR Code" class="w-full h-full object-contain" />
-          </div>
-          <p class="text-base text-[#07C160] font-mono tracking-[0.2em] font-medium">6B-206</p>
         </div>
 
       </div>

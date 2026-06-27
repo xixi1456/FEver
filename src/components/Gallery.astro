@@ -1,0 +1,348 @@
+// 战队风采 - JIEJOO 008 无限滑动效果（鼠标拖拽+边界穿越+GSAP缓动）
+// 照片位置预留，后续替换
+---
+const base = import.meta.env.BASE_URL || '/';
+---
+
+<section id="gallery" class="relative py-24 sm:py-40 overflow-hidden">
+  <!-- 顶部流动分隔线 (JIEJOO 011 流动虚线风格) -->
+  <div class="absolute top-0 left-0 w-full overflow-hidden opacity-20" aria-hidden="true">
+    <svg class="w-full h-2" viewBox="0 0 1200 8" preserveAspectRatio="none">
+      <line x1="0" y1="4" x2="1200" y2="4" stroke="var(--color-neon-green)" stroke-width="1" stroke-dasharray="10 5">
+        <animate attributeName="stroke-dashoffset" from="0" to="-15" dur="1s" repeatCount="indefinite"/>
+      </line>
+    </svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 fade-up">
+    <p class="text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-2 font-mono">GALLERY</p>
+    <h2 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">战队风采</h2>
+    <svg class="w-20 h-1" viewBox="0 0 80 2" aria-hidden="true">
+      <line x1="0" y1="1" x2="80" y2="1" stroke="var(--color-neon-green)" stroke-width="2" class="stroke-draw" style="--len:80"/>
+    </svg>
+  </div>
+
+  <!-- 无限滑动容器 -->
+  <div id="infinite-gallery" class="relative cursor-grab active:cursor-grabbing select-none flex items-center" data-cursor style="height: 320px; touch-action: pan-y;">
+    <div id="gallery-inner" class="absolute" style="width: max-content; top: 50%; transform: translateY(-50%);">
+      <!-- 照片卡片 - 后续替换为真实照片 (美术AI: hover副信息揭示) -->
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/1.jpg'} alt="步兵" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">01</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">步兵机器人</p>
+        </div>
+        <!-- hover时滑入的副信息 -->
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-green)] tracking-[0.2em]">2025 · REGIONAL</p>
+          <p class="text-white text-xs mt-1">步兵</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-green)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/2.jpg'} alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">02</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">英雄机器人</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-blue)] tracking-[0.2em]">2025 · ALGORITHM</p>
+          <p class="text-white text-xs mt-1">第一代英雄</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-blue)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/3.jpg'} alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">03</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">哨兵机器人</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-purple)] tracking-[0.2em]">2025 · MECHANICAL</p>
+          <p class="text-white text-xs mt-1">第一代哨兵</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-purple)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/4.jpg'} alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">04</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">第一代机器人集体留念</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-green)] tracking-[0.2em]">2025 · COMPETITION</p>
+          <p class="text-white text-xs mt-1">第一代集体留念</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-green)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/5.jpg'} alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">05</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">战队合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-blue)] tracking-[0.2em]">2025 · TEAM</p>
+          <p class="text-white text-xs mt-1">战队合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-blue)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/6.jpg'} alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">06</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">出征合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-purple)] tracking-[0.2em]">2025 · GLORY</p>
+          <p class="text-white text-xs mt-1">出征合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-purple)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <!-- 重复一份实现无缝循环 -->
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/1.jpg'} alt="赛场集结" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">01</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">步兵机器人</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-green)] tracking-[0.2em]">2025 · REGIONAL</p>
+          <p class="text-white text-xs mt-1">第一代步兵</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-green)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/2.jpg'} alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">02</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">英雄机器人</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-blue)] tracking-[0.2em]">2025 · ALGORITHM</p>
+          <p class="text-white text-xs mt-1">第一代英雄</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-blue)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/3.jpg'} alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">03</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">哨兵机器人</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-purple)] tracking-[0.2em]">2025 · MECHANICAL</p>
+          <p class="text-white text-xs mt-1">第一代哨兵</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-purple)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/4.jpg'} alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">04</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">第一代机器人集体留念</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-green)] tracking-[0.2em]">2025 · COMPETITION</p>
+          <p class="text-white text-xs mt-1">第一代集体留念</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-green)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/5.jpg'} alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">05</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">战队合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-blue)] tracking-[0.2em]">2025 · TEAM</p>
+          <p class="text-white text-xs mt-1">战队合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-blue)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
+        <img src={base + 'images/6.jpg'} alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">06</span>
+          <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">出征合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <p class="text-[10px] font-mono text-[var(--color-neon-purple)] tracking-[0.2em]">2025 · GLORY</p>
+          <p class="text-white text-xs mt-1">出征合影</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-neon-purple)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 拖拽提示 -->
+  <div class="text-center mt-6">
+    <p class="text-[var(--color-text-dim)] text-[10px] tracking-[0.3em] font-mono">← 拖拽浏览 →</p>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+
+  const container = document.getElementById('infinite-gallery')!;
+  const inner = document.getElementById('gallery-inner')!;
+  const items = inner.querySelectorAll('.gallery-item');
+  const itemWidth = (items[0] as HTMLElement).offsetWidth + 20;
+  const halfCount = items.length / 2;
+  const halfWidth = halfCount * itemWidth;
+
+  // ========== 状态 ==========
+  let currentX = 0;
+  let isDragging = false;
+  let dragStartPointerX = 0;   // 拖拽起始指针位置
+  let dragStartCurrentX = 0;   // 拖拽起始时的 currentX
+  let lastDx = 0;
+  let velocity = 0;
+  let lastMoveTime = 0;
+  let lastMovePointerX = 0;
+
+  // 惯性补间引用（统一管理，mouse/touch 共用）
+  let activeTween: gsap.core.Tween | null = null;
+
+  // ========== 核心：应用位置 + 边界穿越 ==========
+  function applyPosition() {
+    // 边界穿越（无限循环）
+    if (currentX < -halfWidth) {
+      currentX += halfWidth;
+    }
+    if (currentX > 0) {
+      currentX -= halfWidth;
+    }
+    gsap.set(inner, { x: currentX });
+  }
+
+  // ========== 工具：kill 活跃补间 ==========
+  function killActiveTween() {
+    if (activeTween) {
+      activeTween.kill();
+      activeTween = null;
+    }
+  }
+
+  // ========== 工具：计算速度 ==========
+  function updateVelocity(pointerX: number, now: number) {
+    if (lastMoveTime > 0 && now - lastMoveTime < 100) {
+      velocity = pointerX - lastMovePointerX;
+    }
+    lastMovePointerX = pointerX;
+    lastMoveTime = now;
+  }
+
+  // ========== 鼠标拖拽 ==========
+  container.addEventListener('mousedown', (e) => {
+    killActiveTween();
+    isDragging = true;
+    dragStartPointerX = e.pageX;
+    dragStartCurrentX = currentX;
+    lastDx = 0;
+    lastMoveTime = 0;
+    container.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const dx = e.pageX - dragStartPointerX;
+    lastDx = dx;
+    currentX = dragStartCurrentX + dx;
+    updateVelocity(e.pageX, Date.now());
+    applyPosition();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    container.style.cursor = 'grab';
+    launchInertia(lastDx);
+  });
+
+  // ========== 触摸拖拽 ==========
+  container.addEventListener('touchstart', (e) => {
+    killActiveTween();
+    isDragging = true;
+    dragStartPointerX = e.touches[0].pageX;
+    dragStartCurrentX = currentX;
+    lastDx = 0;
+    lastMoveTime = 0;
+  }, { passive: true });
+
+  container.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const pointerX = e.touches[0].pageX;
+    const dx = pointerX - dragStartPointerX;
+    lastDx = dx;
+    currentX = dragStartCurrentX + dx;
+    updateVelocity(pointerX, Date.now());
+    applyPosition();
+  }, { passive: true });
+
+  container.addEventListener('touchend', () => {
+    isDragging = false;
+    launchInertia(lastDx);
+  });
+
+  // ========== 惯性启动（统一入口）==========
+  function launchInertia(v: number) {
+    killActiveTween();
+    if (Math.abs(v) < 3) return;
+    const targetX = currentX + v * 12;
+    activeTween = gsap.to({ x: currentX }, {
+      x: targetX,
+      duration: 1.0,
+      ease: 'power3.out',
+      onUpdate() {
+        currentX = this.targets()[0].x;
+        applyPosition();
+      },
+      onComplete() {
+        activeTween = null;
+      }
+    });
+  }
+
+  // ========== 自动缓慢漂移 ==========
+  let autoScroll: ReturnType<typeof setInterval> | null = null;
+
+  function startAutoScroll() {
+    stopAutoScroll();
+    autoScroll = setInterval(() => {
+      if (!isDragging && !activeTween) {
+        currentX -= 0.5;
+        applyPosition();
+      }
+    }, 16);
+  }
+
+  function stopAutoScroll() {
+    if (autoScroll) {
+      clearInterval(autoScroll);
+      autoScroll = null;
+    }
+  }
+
+  // 只在可视区域内自动滚动
+  const galleryObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      startAutoScroll();
+    } else {
+      stopAutoScroll();
+    }
+  }, { threshold: 0.1 });
+
+  galleryObserver.observe(container);
+</script>

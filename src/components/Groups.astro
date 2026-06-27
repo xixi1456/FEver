@@ -1,0 +1,306 @@
+---
+// 三大门派 - 嵌入式/算法/机械 + 新生项目 + 27赛季标语
+---
+
+<!-- 27赛季标语横幅 -->
+<div class="relative py-6 overflow-hidden border-y border-[var(--color-border)] bg-[var(--color-bg-card)]" aria-label="赛季预告">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center gap-4 sm:gap-6">
+      <svg class="w-4 h-4 text-[var(--color-neon-green)] animate-pulse flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <circle cx="10" cy="10" r="5"/>
+      </svg>
+      <p class="text-white text-xs sm:text-sm font-medium tracking-wider">
+        <span class="gradient-text-green font-black font-mono">27</span> 赛季正在筹划中
+      </p>
+      <div class="hidden sm:block w-20 h-px bg-[var(--color-neon-green)]/20"></div>
+      <p class="hidden sm:block text-[var(--color-text-dim)] text-[10px] tracking-[0.2em] font-mono">SEASON 27 INCOMING</p>
+    </div>
+  </div>
+</div>
+
+<section id="groups" class="relative py-20 sm:py-32">
+  <!-- 装饰SVG背景 -->
+  <svg class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.08]" aria-hidden="true">
+    <line x1="8%" y1="0" x2="8%" y2="100%" stroke="var(--color-neon-green)" stroke-width="1" class="stroke-draw" style="--len:2000"/>
+    <line x1="92%" y1="0" x2="92%" y2="100%" stroke="var(--color-neon-green)" stroke-width="1" class="stroke-draw" style="--len:2000"/>
+  </svg>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- 区域标题 -->
+    <div class="mb-16 fade-up">
+      <p class="text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-2 font-mono">SECT STRUCTURE</p>
+      <h2 class="text-5xl sm:text-7xl font-black text-white mb-4 tracking-tight">三大门派</h2>
+      <svg class="w-20 h-1" viewBox="0 0 80 2" aria-hidden="true">
+        <line x1="0" y1="1" x2="80" y2="1" stroke="var(--color-neon-green)" stroke-width="2" class="stroke-draw" style="--len:80"/>
+      </svg>
+    </div>
+
+    <div class="space-y-4">
+
+      <!-- ===== 嵌入式门派（电控+硬件）===== -->
+      <div class="group-card cyber-corners border-gradient rounded-lg overflow-hidden">
+        <button class="group-toggle w-full text-left p-8 sm:p-10 flex items-center justify-between" data-cursor="+" aria-expanded="false">
+          <!-- hover副信息 -->
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="text-5xl sm:text-7xl font-black text-stroke-lg font-mono" style="-webkit-text-stroke-color: var(--color-neon-blue)">01</span>
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white">嵌入式门派</h3>
+              <p class="text-[var(--color-neon-blue)] text-[10px] tracking-[0.3em] font-mono mt-1">EMBEDDED SECT · 电控 & 硬件</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="hidden sm:block text-[var(--color-text-dim)] text-xs font-mono tracking-wider group-toggle-text">展开</span>
+            <svg class="w-5 h-5 text-[var(--color-neon-blue)] transition-transform duration-300 toggle-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </button>
+        <div class="group-detail px-8 sm:px-10">
+          <div class="pb-8 pt-2 border-t border-[var(--color-border)]">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <p class="text-sm text-[var(--color-text)] leading-relaxed mb-4">
+                  嵌入式门派融合了<span class="text-[var(--color-neon-blue)] font-medium">电控</span>与<span class="text-[var(--color-neon-blue)] font-medium">硬件</span>两大方向。从 STM32 嵌入式开发到 PCB 电路设计，从 PID 控制算法到电源管理，嵌入式门派是机器人的"神经系统"和"心脏"——让每一个指令精准落地，让每一块板子稳定运行。
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="p-3 border border-[var(--color-border)] rounded bg-[var(--color-bg)]/50">
+                    <p class="text-white text-xs font-bold mb-1">⚡ 电控</p>
+                    <ul class="space-y-1">
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· STM32 / FreeRTOS</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· PID 调参</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· CAN 通信</li>
+                    </ul>
+                  </div>
+                  <div class="p-3 border border-[var(--color-border)] rounded bg-[var(--color-bg)]/50">
+                    <p class="text-white text-xs font-bold mb-1">🔌 硬件</p>
+                    <ul class="space-y-1">
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· Altium Designer</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· PCB Layout</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· 电源管理</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="h-48 sm:h-auto rounded border border-[var(--color-border)] bg-gradient-to-br from-[var(--color-neon-blue)]/5 to-transparent flex items-center justify-center">
+                <!-- 电路板SVG描边动画 (JIEJOO 011) -->
+                <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                  <rect x="20" y="20" width="60" height="60" rx="4" stroke="var(--color-neon-blue)" stroke-width="0.8" class="stroke-draw" style="--len:240"/>
+                  <!-- 引脚 -->
+                  <line x1="20" y1="35" x2="10" y2="35" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <line x1="20" y1="50" x2="10" y2="50" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <line x1="20" y1="65" x2="10" y2="65" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <line x1="80" y1="35" x2="90" y2="35" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <line x1="80" y1="50" x2="90" y2="50" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <line x1="80" y1="65" x2="90" y2="65" stroke="var(--color-neon-blue)" stroke-width="0.5" class="stroke-draw" style="--len:10"/>
+                  <!-- 走线 -->
+                  <path d="M35 35H50V50H65" stroke="var(--color-neon-blue)" stroke-width="0.4" opacity="0.5" class="stroke-draw" style="--len:50"/>
+                  <path d="M35 65H55V50H65" stroke="var(--color-neon-blue)" stroke-width="0.4" opacity="0.5" class="stroke-draw" style="--len:50"/>
+                  <!-- 芯片中心 -->
+                  <circle cx="50" cy="50" r="8" stroke="var(--color-neon-blue)" stroke-width="0.6" class="stroke-draw" style="--len:50"/>
+                  <circle cx="50" cy="50" r="3" fill="var(--color-neon-blue)" opacity="0.3"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 算法门派（视觉+导航）===== -->
+      <div class="group-card cyber-corners border-gradient rounded-lg overflow-hidden">
+        <button class="group-toggle w-full text-left p-8 sm:p-10 flex items-center justify-between" data-cursor="+" aria-expanded="false">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="text-5xl sm:text-7xl font-black text-stroke-lg font-mono" style="-webkit-text-stroke-color: var(--color-neon-purple)">02</span>
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white">算法门派</h3>
+              <p class="text-[var(--color-neon-purple)] text-[10px] tracking-[0.3em] font-mono mt-1">ALGORITHM SECT · 视觉 & 导航</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="hidden sm:block text-[var(--color-text-dim)] text-xs font-mono tracking-wider group-toggle-text">展开</span>
+            <svg class="w-5 h-5 text-[var(--color-neon-purple)] transition-transform duration-300 toggle-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </button>
+        <div class="group-detail px-8 sm:px-10">
+          <div class="pb-8 pt-2 border-t border-[var(--color-border)]">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <p class="text-sm text-[var(--color-text)] leading-relaxed mb-4">
+                  算法门派统管<span class="text-[var(--color-neon-purple)] font-medium">视觉</span>与<span class="text-[var(--color-neon-purple)] font-medium">导航</span>两大方向。从 YOLO 目标检测到 ROS 自主导航，从 OpenCV 图像处理到多机通信协同，算法门派赋予机器人"看见世界"和"自主决策"的能力——一颗子弹的命中，就是你的代码在说话。
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="p-3 border border-[var(--color-border)] rounded bg-[var(--color-bg)]/50">
+                    <p class="text-white text-xs font-bold mb-1">👁 视觉</p>
+                    <ul class="space-y-1">
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· OpenCV 图像处理</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· YOLO 目标检测</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· 弹道解算</li>
+                    </ul>
+                  </div>
+                  <div class="p-3 border border-[var(--color-border)] rounded bg-[var(--color-bg)]/50">
+                    <p class="text-white text-xs font-bold mb-1">🧭 导航</p>
+                    <ul class="space-y-1">
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· ROS 机器人系统</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· 自主导航</li>
+                      <li class="text-[10px] text-[var(--color-text-dim)]">· 多机通信</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="h-48 sm:h-auto rounded border border-[var(--color-border)] bg-gradient-to-br from-[var(--color-neon-purple)]/5 to-transparent flex items-center justify-center">
+                <!-- 视觉+导航SVG描边 (JIEJOO 011风格) -->
+                <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                  <!-- 眼睛轮廓 -->
+                  <ellipse cx="50" cy="45" rx="35" ry="20" stroke="var(--color-neon-purple)" stroke-width="0.8" class="stroke-draw" style="--len:120"/>
+                  <circle cx="50" cy="45" r="12" stroke="var(--color-neon-purple)" stroke-width="1" class="stroke-draw" style="--len:75"/>
+                  <circle cx="50" cy="45" r="5" fill="var(--color-neon-purple)" opacity="0.3"/>
+                  <!-- 导航路径 -->
+                  <path d="M20 85L35 75L50 80L65 70L80 75" stroke="var(--color-neon-purple)" stroke-width="0.6" stroke-dasharray="4 2" class="stroke-draw" style="--len:100"/>
+                  <!-- 节点 -->
+                  <circle cx="20" cy="85" r="2" fill="var(--color-neon-purple)" opacity="0.5"/>
+                  <circle cx="50" cy="80" r="2" fill="var(--color-neon-purple)" opacity="0.5"/>
+                  <circle cx="80" cy="75" r="2" fill="var(--color-neon-purple)" opacity="0.5"/>
+                  <!-- 扫描线动画 -->
+                  <line x1="15" y1="45" x2="85" y2="45" stroke="var(--color-neon-purple)" stroke-width="0.3" opacity="0.3">
+                    <animate attributeName="y1" values="25;65;25" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="y2" values="25;65;25" dur="3s" repeatCount="indefinite"/>
+                  </line>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 机械门派 ===== -->
+      <div class="group-card cyber-corners border-gradient rounded-lg overflow-hidden">
+        <button class="group-toggle w-full text-left p-8 sm:p-10 flex items-center justify-between" data-cursor="+" aria-expanded="false">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="text-5xl sm:text-7xl font-black text-stroke-lg font-mono">03</span>
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white">机械门派</h3>
+              <p class="text-[var(--color-neon-green)] text-[10px] tracking-[0.3em] font-mono mt-1">MECHANICAL SECT</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="hidden sm:block text-[var(--color-text-dim)] text-xs font-mono tracking-wider group-toggle-text">展开</span>
+            <svg class="w-5 h-5 text-[var(--color-neon-green)] transition-transform duration-300 toggle-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </button>
+        <div class="group-detail px-8 sm:px-10">
+          <div class="pb-8 pt-2 border-t border-[var(--color-border)]">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <p class="text-sm text-[var(--color-text)] leading-relaxed mb-4">
+                  机械门派负责机器人整体结构设计与精密加工。从 CAD 建模到 CNC 加工，从 3D 打印原型到装配调试，打造坚固耐用的竞技底盘与执行机构——机器人的"骨骼"与"肌肉"，都出自机械门派之手。
+                </p>
+                <ul class="space-y-2 mb-4">
+                  <li class="flex items-center gap-2 text-xs text-[var(--color-text-dim)]"><span class="w-1 h-1 bg-[var(--color-neon-green)] rounded-full"></span>SolidWorks / Fusion 360 建模</li>
+                  <li class="flex items-center gap-2 text-xs text-[var(--color-text-dim)]"><span class="w-1 h-1 bg-[var(--color-neon-green)] rounded-full"></span>CNC / 3D打印 / 钣金加工</li>
+                  <li class="flex items-center gap-2 text-xs text-[var(--color-text-dim)]"><span class="w-1 h-1 bg-[var(--color-neon-green)] rounded-full"></span>结构强度与运动学分析</li>
+                </ul>
+              </div>
+              <div class="h-48 sm:h-auto rounded border border-[var(--color-border)] bg-gradient-to-br from-[var(--color-neon-green)]/5 to-transparent flex items-center justify-center">
+                <!-- 齿轮SVG描边 (JIEJOO 011) -->
+                <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                  <circle cx="50" cy="50" r="30" stroke="var(--color-neon-green)" stroke-width="0.5" opacity="0.3" class="stroke-draw" style="--len:190"/>
+                  <circle cx="50" cy="50" r="20" stroke="var(--color-neon-green)" stroke-width="0.8" opacity="0.5" class="stroke-draw" style="--len:130"/>
+                  <!-- 齿轮齿 -->
+                  <path d="M50 18L53 25H47L50 18Z M50 82L53 75H47L50 82Z M18 50L25 47V53L18 50Z M82 50L75 47V53L82 50Z M27 27L33 30L30 33L27 27Z M73 73L67 70L70 67L73 73Z M73 27L70 33L67 30L73 27Z M27 73L30 67L33 70L27 73Z" stroke="var(--color-neon-green)" stroke-width="0.5" opacity="0.4" class="stroke-draw" style="--len:120"/>
+                  <circle cx="50" cy="50" r="6" stroke="var(--color-neon-green)" stroke-width="1" class="stroke-draw" style="--len:40"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== 新生项目 ===== -->
+    <div class="mt-16 fade-up">
+      <p class="text-center text-[var(--color-neon-green)] text-xs tracking-[0.4em] mb-6 font-mono">ROOKIE PROJECTS</p>
+      <h3 class="text-center text-2xl sm:text-3xl font-bold text-white mb-10">新生项目</h3>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <!-- 小工程 -->
+        <div class="relative p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden card-hover cyber-corners card-tilt" data-cursor>
+          <div class="absolute top-0 right-0 w-16 h-16 bg-[var(--color-neon-green)]/3 rounded-bl-[32px]"></div>
+          <svg class="w-8 h-8 mb-3 text-[var(--color-neon-green)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+          </svg>
+          <h4 class="text-white text-sm font-bold mb-1">小工程</h4>
+          <p class="text-[var(--color-text-dim)] text-[10px] tracking-wider font-mono mb-2">MINI ENGINE</p>
+          <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">入门级工程实践项目，从零搭建一个小型机器人，快速上手团队开发流程。</p>
+          <!-- 底部描边线 (JIEJOO 011) -->
+          <svg class="absolute bottom-0 left-0 w-full h-px" viewBox="0 0 200 1" aria-hidden="true">
+            <line x1="0" y1="0.5" x2="200" y2="0.5" stroke="var(--color-neon-green)" stroke-width="1" class="stroke-draw" style="--len:200" opacity="0.2"/>
+          </svg>
+        </div>
+
+        <!-- 小轮腿 -->
+        <div class="relative p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden card-hover cyber-corners card-tilt" data-cursor>
+          <div class="absolute top-0 right-0 w-16 h-16 bg-[var(--color-neon-blue)]/3 rounded-bl-[32px]"></div>
+          <svg class="w-8 h-8 mb-3 text-[var(--color-neon-blue)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <h4 class="text-white text-sm font-bold mb-1">小轮腿</h4>
+          <p class="text-[var(--color-text-dim)] text-[10px] tracking-wider font-mono mb-2">WHEEL-LEG BOT</p>
+          <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">轮腿式机器人项目，融合机械结构与控制算法，挑战足式与轮式的完美结合。</p>
+          <svg class="absolute bottom-0 left-0 w-full h-px" viewBox="0 0 200 1" aria-hidden="true">
+            <line x1="0" y1="0.5" x2="200" y2="0.5" stroke="var(--color-neon-blue)" stroke-width="1" class="stroke-draw" style="--len:200" opacity="0.2"/>
+          </svg>
+        </div>
+
+        <!-- 小无人机 -->
+        <div class="relative p-6 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-card)] overflow-hidden card-hover cyber-corners card-tilt" data-cursor>
+          <div class="absolute top-0 right-0 w-16 h-16 bg-[var(--color-neon-purple)]/3 rounded-bl-[32px]"></div>
+          <svg class="w-8 h-8 mb-3 text-[var(--color-neon-purple)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+          </svg>
+          <h4 class="text-white text-sm font-bold mb-1">小无人机</h4>
+          <p class="text-[var(--color-text-dim)] text-[10px] tracking-wider font-mono mb-2">MINI DRONE</p>
+          <p class="text-[var(--color-text-dim)] text-xs leading-relaxed">无人机项目，从飞控调试到自主悬停，在天空写下你的第一行控制代码。</p>
+          <svg class="absolute bottom-0 left-0 w-full h-px" viewBox="0 0 200 1" aria-hidden="true">
+            <line x1="0" y1="0.5" x2="200" y2="0.5" stroke="var(--color-neon-purple)" stroke-width="1" class="stroke-draw" style="--len:200" opacity="0.2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 手风琴
+  document.querySelectorAll('.group-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.group-card')!;
+      const detail = card.querySelector('.group-detail')!;
+      const arrow = btn.querySelector('.toggle-arrow')!;
+      const text = btn.querySelector('.group-toggle-text');
+      const isOpen = detail.classList.contains('open');
+
+      if (isOpen) {
+        detail.classList.remove('open');
+        arrow.style.transform = '';
+        if (text) text.textContent = '展开';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        detail.classList.add('open');
+        arrow.style.transform = 'rotate(180deg)';
+        if (text) text.textContent = '收起';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // 键盘支持
+  document.querySelectorAll('.group-toggle').forEach((btn) => {
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); (btn as HTMLElement).click(); }
+    });
+  });
+</script>

@@ -1,0 +1,172 @@
+---
+// 加载动画 - 蜂窝矩阵 + SVG队徽 + 5秒超时
+---
+
+<div id="loading-screen" role="alert" aria-label="页面加载中">
+  <svg id="hex-grid" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+
+  <div id="loading-text" class="text-center">
+    <!-- SVG风格化队徽 - RM风格几何R字+旋转环 -->
+    <svg class="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <!-- 外圈旋转环 -->
+      <circle cx="60" cy="60" r="56" stroke="var(--color-neon-green)" stroke-width="0.5" stroke-dasharray="8 4" class="loading-spin" opacity="0.4"/>
+      <circle cx="60" cy="60" r="50" stroke="var(--color-neon-green)" stroke-width="0.3" stroke-dasharray="4 8" class="loading-spin-reverse" opacity="0.3"/>
+
+      <!-- RoboMaster风格R - 视觉重心修正后对齐(60,60) -->
+      <path fill="#F5C542" class="loading-r-fade gold-glow" d="
+        M28.3 22.4
+        L53.5 22.4
+        C67.5 22.4 75.9 29.4 75.9 42
+        C75.9 51.8 70.3 58.8 59.1 61.6
+        L81.5 89.6
+        L64.7 89.6
+        L45.1 63
+        L43.7 63
+        L43.7 89.6
+        L28.3 89.6
+        Z
+        M43.7 35
+        L43.7 50.4
+        L54.9 50.4
+        C61.9 50.4 63.3 46.2 63.3 42
+        C63.3 35 60.5 35 53.5 35
+        Z
+        M59.1 64.4
+        L74.5 89.6
+        L85.7 89.6
+        L66.1 63
+        Z
+      "/>
+    </svg>
+
+    <div class="brand neon-glow">FEVER</div>
+    <p class="text-[var(--color-text-dim)] text-xs tracking-[0.4em] mt-4 font-mono">INITIALIZING</p>
+  </div>
+</div>
+
+<style>
+  .loading-spin {
+    transform-origin: center;
+    animation: spin-slow 8s linear infinite;
+  }
+  .loading-spin-reverse {
+    transform-origin: center;
+    animation: spin-slow 12s linear infinite reverse;
+  }
+  .gold-glow {
+    filter: drop-shadow(0 0 8px #F5C542) drop-shadow(0 0 20px rgba(245,197,66,0.6)) drop-shadow(0 0 40px rgba(245,197,66,0.3));
+  }
+  @media (hover: none) and (pointer: coarse) {
+    .gold-glow {
+      filter: drop-shadow(0 0 4px #F5C542) drop-shadow(0 0 10px rgba(245,197,66,0.3));
+    }
+  }
+  .loading-r-fade {
+    transform-origin: 60px 60px;
+    animation: r-reveal 0.8s ease-out 0.3s both;
+  }
+  .loading-scan {
+    animation: scan-line 2s ease-in-out infinite;
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes scan-line {
+    0% { opacity: 0; transform: translateY(-20px); }
+    50% { opacity: 0.4; }
+    100% { opacity: 0; transform: translateY(20px); }
+  }
+  @keyframes r-reveal {
+    0% { opacity: 0; transform: scale(0.8); filter: blur(4px); }
+    100% { opacity: 0.95; transform: scale(1); filter: blur(0); }
+  }
+</style>
+
+<script>
+  // ===== 生成蜂窝矩阵 =====
+  // 移动端适配：仅在 <768px 视口下调整 viewBox 与行列数，桌面端保持原值
+  const svg = document.getElementById('hex-grid')!;
+  const ns = 'http://www.w3.org/2000/svg';
+
+  const isMobile = window.innerWidth < 768;
+  const VIEW_W = isMobile ? 400 : 800;
+  const VIEW_H = isMobile ? 700 : 600;
+  const hexSize = isMobile ? 22 : 30;
+
+  // 移动端覆盖 viewBox（4:3 → 9:16 适配竖屏，slice 缩放比 ≈0.95 不裁剪）
+  if (isMobile) {
+    svg.setAttribute('viewBox', `0 0 ${VIEW_W} ${VIEW_H}`);
+  }
+
+  const hexW = hexSize * 2;
+  const hexH = Math.sqrt(3) * hexSize;
+  const cols = Math.ceil(VIEW_W / (hexW * 0.75)) + 1;
+  const rows = Math.ceil(VIEW_H / hexH) + 1;
+
+  const hexagons: SVGPolygonElement[] = [];
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const x = col * hexW * 0.75;
+      const y = row * hexH + (col % 2 === 1 ? hexH / 2 : 0);
+      const points = [];
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 180) * (60 * i - 30);
+        points.push(`${x + hexSize * Math.cos(angle)},${y + hexSize * Math.sin(angle)}`);
+      }
+      const polygon = document.createElementNS(ns, 'polygon');
+      polygon.setAttribute('points', points.join(' '));
+      polygon.classList.add('hex-cell');
+      svg.appendChild(polygon);
+      hexagons.push(polygon);
+    }
+  }
+
+  // 阶段1：随机绘制
+  const shuffled = [...hexagons].sort(() => Math.random() - 0.5);
+  shuffled.forEach((hex, i) => {
+    setTimeout(() => { hex.classList.add('draw'); }, i * 12);
+  });
+
+  // 阶段2：中心扩散消失
+  const centerX = VIEW_W / 2, centerY = VIEW_H / 2;
+  const byDistance = [...hexagons].sort((a, b) => {
+    const getCenter = (el: SVGPolygonElement) => {
+      const pts = el.getAttribute('points')!.split(' ')[0].split(',');
+      return { x: parseFloat(pts[0]), y: parseFloat(pts[1]) };
+    };
+    const ac = getCenter(a), bc = getCenter(b);
+    return Math.hypot(ac.x - centerX, ac.y - centerY) - Math.hypot(bc.x - centerX, bc.y - centerY);
+  });
+
+  const phase2Start = 2200;
+  setTimeout(() => {
+    byDistance.forEach((hex, i) => {
+      setTimeout(() => { hex.classList.remove('draw'); hex.classList.add('fade'); }, i * 8);
+    });
+  }, phase2Start);
+
+  // ===== 滑出 + 入场编排 (美术AI) =====
+  const loadingScreen = document.getElementById('loading-screen')!;
+  let dismissed = false;
+
+  function dismissLoading() {
+    if (dismissed) return;
+    dismissed = true;
+    loadingScreen.classList.add('done');
+    setTimeout(() => { loadingScreen.style.display = 'none'; }, 900);
+
+    // 入场编排：GSAP timeline
+    import('gsap').then((gsapModule) => {
+      const gsap = gsapModule.default || gsapModule;
+      const tl = gsap.timeline();
+      tl.from('#hero .fade-up', { y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' })
+        .from('#hero h1', { y: 60, opacity: 0, duration: 1, ease: 'power3.out' }, '-=0.4')
+        .from('#hero .scan-sweep', { opacity: 0, duration: 1 }, '-=0.5')
+        .from('#hero .marquee-track', { opacity: 0, duration: 1 }, '-=0.5');
+    });
+  }
+
+  setTimeout(dismissLoading, 5000); // 超时保护
+  setTimeout(dismissLoading, phase2Start + byDistance.length * 8 + 200);
+</script>

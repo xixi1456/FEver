@@ -1,6 +1,7 @@
----
 // 战队风采 - JIEJOO 008 无限滑动效果（鼠标拖拽+边界穿越+GSAP缓动）
 // 照片位置预留，后续替换
+---
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <section id="gallery" class="relative py-24 sm:py-40 overflow-hidden">
@@ -26,7 +27,7 @@
     <div id="gallery-inner" class="absolute" style="width: max-content; top: 50%; transform: translateY(-50%);">
       <!-- 照片卡片 - 后续替换为真实照片 (美术AI: hover副信息揭示) -->
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/1.jpg" alt="步兵" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/1.jpg'} alt="步兵" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">01</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">步兵机器人</p>
@@ -40,7 +41,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/2.jpg" alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/2.jpg'} alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">02</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">英雄机器人</p>
@@ -53,7 +54,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/3.jpg" alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/3.jpg'} alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">03</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">哨兵机器人</p>
@@ -66,7 +67,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/4.jpg" alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/4.jpg'} alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">04</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">第一代机器人集体留念</p>
@@ -79,7 +80,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/5.jpg" alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/5.jpg'} alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">05</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">战队合影</p>
@@ -92,7 +93,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/6.jpg" alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/6.jpg'} alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">06</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">出征合影</p>
@@ -106,7 +107,7 @@
 
       <!-- 重复一份实现无缝循环 -->
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/1.jpg" alt="赛场集结" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/1.jpg'} alt="赛场集结" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">01</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">步兵机器人</p>
@@ -119,7 +120,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/2.jpg" alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/2.jpg'} alt="代码之战" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">02</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">英雄机器人</p>
@@ -132,7 +133,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/3.jpg" alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/3.jpg'} alt="硬核改装" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">03</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">哨兵机器人</p>
@@ -145,7 +146,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/4.jpg" alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/4.jpg'} alt="荣誉时刻" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110">04</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">第一代机器人集体留念</p>
@@ -158,7 +159,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/5.jpg" alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/5.jpg'} alt="团队协作" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-blue)">05</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">战队合影</p>
@@ -171,7 +172,7 @@
       </div>
 
       <div class="gallery-item inline-block w-56 sm:w-72 h-56 sm:h-72 mr-5 rounded-lg overflow-hidden border border-[var(--color-border)] relative group align-top" data-cursor="DRAG">
-        <img src="/fever/images/6.jpg" alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img src={base + 'images/6.jpg'} alt="不断进化" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
           <span class="text-stroke-lg text-5xl font-black opacity-15 transition-all duration-500 group-hover:opacity-40 group-hover:scale-110" style="-webkit-text-stroke-color:var(--color-neon-purple)">06</span>
           <p class="text-white text-xs font-bold mt-2 tracking-wider transition-transform duration-500 group-hover:-translate-y-1">出征合影</p>
